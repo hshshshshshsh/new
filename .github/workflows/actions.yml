@@ -38,8 +38,7 @@ jobs:
         run: dotnet publish -c Release ./api
 
       - name: Zip Functions Package
-        run: zip -r ../deploy.zip ./
-        working-directory: ./api/karthik/bin/Release/net6.0/publish/
+        run: zip -r deploy.zip ./api/karthik/bin/Release/net6.0/publish/
 
       - name: Upload Deployment Zip
         uses: actions/upload-artifact@v2
