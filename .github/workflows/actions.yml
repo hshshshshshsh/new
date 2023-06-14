@@ -34,10 +34,10 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build -p api
-
+      - name: Build with Gradle
+        run: ./gradlew build -p api
       - name: Publish
         run: ./gradlew publish -p api
-
       - name: Zip Functions Package
         run: zip -r deploy.zip ./api/karthik/build/libs/
 
