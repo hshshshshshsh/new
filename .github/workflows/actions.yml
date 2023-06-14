@@ -31,11 +31,15 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Build with Gradle
+        run:  cd path/to/root/directory./gradlew build -p api
+      - name: Build with Gradle
+        run: path/to/gradlew build -p api
+      - name: Build with Gradle
+        run: ./gradlew build -p api
+      - name: Build with Gradle
+        run: cd path/to/root/directory./gradlew build -p api
 
-      - name: Build with Gradle
-        run: ./gradlew build -p api
-      - name: Build with Gradle
-        run: ./gradlew build -p api
       - name: Publish
         run: ./gradlew publish -p api
       - name: Zip Functions Package
