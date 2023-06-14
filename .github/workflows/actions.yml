@@ -7,7 +7,7 @@ on:
   push:
     paths:
       - 'api/**'
-      - 'TwoWeeksReady.Common/**'
+      - 'karthik.Common/**'
       - '.github/workflows/api.yaml'
     branches:
       - main
@@ -35,7 +35,7 @@ jobs:
         run: dotnet build -c Release ./api
 
       - name: Publish
-        run: dotnet publish -c Release ./api
+        run: deployment publish -c Release ./api
 
       - name: Zip Functions Package
         run: zip -r deploy.zip ./api/karthik/bin/Release/net6.0/publish/
