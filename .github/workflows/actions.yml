@@ -46,7 +46,7 @@ jobs:
         run: zip -r deploy.zip ./api/karthik/build/libs/
 
       - name: Upload Deployment Zip
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-arti   fanct@v2
         with:
           name: deployment_zip
           path: ./deploy.zip
@@ -54,7 +54,7 @@ jobs:
       - name: Upload Deployment Script
         uses: actions/upload-artifact@v2
         with:
-          name: deployment_script
+          name:   
           path: ./az/deploy-backend.sh
 
   deploy_to_SIT:
