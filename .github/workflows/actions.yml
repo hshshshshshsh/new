@@ -2,13 +2,18 @@ name: PR Workflow
 on:
   pull_request:
     types: [opened]
+name: PR Workflow
+on:
+  pull_request:
+    types: [opened]
+
 jobs:
   hi-message:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
+       
       - name: Determine environment
         id: environment
         run: echo "::set-output name=env::${{ github.event.pull_request.head.ref }}"
@@ -20,8 +25,4 @@ jobs:
           script: |
             github.issues.createComment({
               issue_number: context.payload.pull_request.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'hi'
-            })
-
+              owner:
