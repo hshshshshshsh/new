@@ -1,8 +1,5 @@
 name: PR Workflow
-on:
-  pull_request:
-    types: [opened]
-name: PR Workflow
+
 on:
   pull_request:
     types: [opened]
@@ -10,19 +7,14 @@ on:
 jobs:
   hi-message:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-       
-      - name: Determine environment
-        id: environment
-        run: echo "::set-output name=env::${{ github.event.pull_request.head.ref }}"
-      
-      - name: Send hi message in SIT environment
-        if: ${{ steps.environment.outputs.env == 'SIT' }}
-        uses: actions/github-script@v4
-        with:
-          script: |
-            github.issues.createComment({
-              issue_number: context.payload.pull_request.number,
-              owner:
+
+      - name: Create comment
+        run: |
+          echo "Hello! This is a comment on the pull request."
+          echo "PR Number: ${{ github.event.pull_request.number }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
